@@ -18,11 +18,3 @@ resource "azurerm_subnet" "subnet" {
   address_prefixes     = [cidrsubnet(local.virtual_network.address_space,8,0)]
   depends_on = [ azurerm_virtual_network.network ]
 }
-
-resource "azurerm_subnet" "subnet2" {
-  name                 = "subnet2"
-  resource_group_name  = azurerm_resource_group.app-grp.name
-  virtual_network_name = azurerm_virtual_network.network.name
-  address_prefixes     = [cidrsubnet(local.virtual_network.address_space,8,0)]
-  depends_on = [ azurerm_virtual_network.network ]
-}
